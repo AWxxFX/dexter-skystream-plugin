@@ -15,7 +15,8 @@
         "User-Agent": USER_AGENT,
         "Referer": `${MAIN_URL}/`,
         "Origin": MAIN_URL,
-        "Accept": "application/json, text/plain, */*"
+        "Accept": "application/json, text/plain, */*",
+        "Accept-Language": "id-ID,id;q=0.9,en;q=0.8"
     };
 
     const STREAM_HEADERS = {
@@ -53,15 +54,18 @@
         if (!item) return null;
         const isTv = item.type === "tv";
         const id = item.id;
-        const title = (item.title || item.name || "Untitled").trim();
+        const baseTitle = (item.title || item.name || "Untitled").trim();
         const poster = _formatPoster(item.poster);
         const desc = item.overview || (Array.isArray(item.genres) ? item.genres.join(", ") : "");
         const year = item.year || (item.date ? parseInt(item.date.substring(0, 4), 10) : 0);
         const score = typeof item.rating === "number" ? item.rating : 0;
 
+        // Taruh tahun di depan judul agar langsung terbaca di kartu tanpa terpotong
+        const displayTitle = year > 0 ? `(${year}) ${baseTitle}` : baseTitle;
+
         return new MultimediaItem({
             url: isTv ? `${MAIN_URL}/tv/${id}` : `${MAIN_URL}/movie/${id}`,
-            title: title,
+            title: displayTitle,
             posterUrl: poster,
             type: isTv ? "series" : "movie",
             description: desc,
@@ -318,7 +322,6 @@
                 }
             }
 
-            // Sort streams: 4K first, 1080p, 720p, 480p, Auto
             results.sort((a, b) => {
                 const rank = s => {
                     const q = (s.quality || s.source || "").toLowerCase();

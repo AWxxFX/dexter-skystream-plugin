@@ -1,7 +1,7 @@
 {
   "packageName": "org.stream.dexter",
   "name": "Dexter Stream",
-  "version": 2,
+  "version": 3,
   "baseUrl": "https://dexter.pw",
   "description": "Stream 4K movies and TV series directly from dexter.pw",
   "authors": [
