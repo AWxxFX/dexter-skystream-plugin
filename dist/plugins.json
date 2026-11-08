@@ -1,0 +1,20 @@
+[
+  {
+    "packageName": "org.stream.dexter",
+    "name": "Dexter Stream",
+    "version": 1,
+    "baseUrl": "https://dexter.pw",
+    "description": "Stream 4K movies and TV series directly from dexter.pw",
+    "authors": [
+      "Dexter"
+    ],
+    "languages": [
+      "en"
+    ],
+    "categories": [
+      "Movie",
+      "TvSeries"
+    ],
+    "url": "https://raw.githubusercontent.com/AWxxFX/dexter-skystream-plugin/main/dist/org.stream.dexter.sky"
+  }
+]

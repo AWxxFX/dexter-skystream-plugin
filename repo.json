@@ -1,0 +1,9 @@
+{
+  "name": "Dexter Stream Repository",
+  "packageName": "org.stream.dexter.repo",
+  "description": "Dexter.pw 4K Stream Provider for SkyStream",
+  "manifestVersion": 1,
+  "pluginLists": [
+    "https://raw.githubusercontent.com/AWxxFX/dexter-skystream-plugin/main/dist/plugins.json"
+  ]
+}
